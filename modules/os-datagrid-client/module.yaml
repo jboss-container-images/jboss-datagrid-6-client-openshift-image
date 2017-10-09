@@ -1,0 +1,5 @@
+schema_version: 1
+
+name: os-datagrid-client
+execute:
+    - script: install.sh

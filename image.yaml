@@ -1,14 +1,9 @@
+schema_version: 1
+
 name: "jboss-datagrid-6/datagrid65-client-openshift"
 description: "Red Hat JBoss Data Grid 6.5 client OpenShift container image"
 version: "1.1"
 from: "jboss/base-rhel7:1.0"
-envs:
-    - name: "JBOSS_PRODUCT"
-      value: "datagrid_client"
-    - name: "JBOSS_DATAGRID_CLIENT_VERSION"
-      value: "6.5.1.GA"
-    - name: "PRODUCT_VERSION"
-      value: "6.5.1.GA"
 labels:
     - name: "io.k8s.description"
       value: "Client for JBoss Data Grid"
@@ -16,18 +11,26 @@ labels:
       value: "JBoss Data Grid 6.5 Client Module"
     - name: "io.openshift.tags"
       value: "datagrid,datagrid6"
+envs:
+    - name: "JBOSS_PRODUCT"
+      value: "datagrid_client"
+    - name: "JBOSS_DATAGRID_CLIENT_VERSION"
+      value: "6.5.1.GA"
+    - name: "PRODUCT_VERSION"
+      value: "6.5.1.GA"
+modules:
+      install:
+          - name: os-datagrid-client
 packages:
-    - gettext
-scripts:
-    - package: os-datagrid-client
-      exec: install.sh
-sources:
-    - artifact: jboss-datagrid-6.5.1-eap-modules-remote-java-client.zip
+      repositories:
+          - jboss-os
+      install:
+          - gettext
+artifacts:
+    - path: jboss-datagrid-6.5.1-eap-modules-remote-java-client.zip
+      description: "Artifact is available on Customer Portal: https://access.redhat.com/jbossnetwork/restricted/softwareDetail.html?softwareId=39941&product=data.grid&version=6.5.1&downloadType=distributions"
       md5: 1d2fdc95edd29c6a6ac29f30bd353346
-      hint: "Artifact is available on Customer Portal: https://access.redhat.com/jbossnetwork/restricted/softwareDetail.html?softwareId=39941&product=data.grid&version=6.5.1&downloadType=distributions"
-dogen:
-    version: 2.1.0
-    plugins:
-        dist_git:
-            repo: jboss-datagrid-6-docker
+osbs:
+      repository:
+            name: jboss-datagrid-6-docker
             branch: ce-1.1-openshift-client-datagrid-6.5-jdk-8-rhel-7
