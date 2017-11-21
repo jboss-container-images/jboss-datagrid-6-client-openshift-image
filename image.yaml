@@ -3,7 +3,7 @@ schema_version: 1
 name: "jboss-datagrid-6/datagrid65-client-openshift"
 description: "Red Hat JBoss Data Grid 6.5 client OpenShift container image"
 version: "1.2"
-from: "jboss/base-rhel7:1.0"
+from: "jboss/base-rhel7:1.1"
 labels:
     - name: "io.k8s.description"
       value: "Client for JBoss Data Grid"
