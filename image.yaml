@@ -35,4 +35,4 @@ artifacts:
 osbs:
       repository:
             name: jboss-datagrid-6-docker
-            branch: ce-1.2-openshift-client-datagrid-6.5-jdk-8-rhel-7
+            branch: jb-datagrid-6.5-client-openshift-rhel-7
