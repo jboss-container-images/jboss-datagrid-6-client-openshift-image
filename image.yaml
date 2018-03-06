@@ -5,6 +5,8 @@ description: "Red Hat JBoss Data Grid 6.5 client OpenShift container image"
 version: "1.2"
 from: "jboss/base-rhel7:1.1"
 labels:
+    - name: "com.redhat.component"
+      value: "jboss-datagrid-6-datagrid65-client-openshift-container"
     - name: "io.k8s.description"
       value: "Client for JBoss Data Grid"
     - name: "io.k8s.display-name"
@@ -34,5 +36,5 @@ artifacts:
       md5: 1d2fdc95edd29c6a6ac29f30bd353346
 osbs:
       repository:
-            name: jboss-datagrid-6-docker
+            name: containers/jboss-datagrid-6
             branch: jb-datagrid-6.5-client-openshift-rhel-7
